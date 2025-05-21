@@ -1,0 +1,73 @@
+📚 Bookstore API
+Sistem ini merupakan backend untuk aplikasi Bookstore yang menggunakan Node.js, Express, dan Prisma ORM dengan database PostgreSQL.
+
+2. Konfigurasi Environment
+Buat file .env dengan cara:
+
+Menyalin file .env.example:
+cp .env.example .env
+
+Atau rename langsung:
+mv .env.example .env
+
+Edit file .env sesuai kredensial PostgreSQL lokal kamu:
+DATABASE_URL="postgresql://postgres:your_password@localhost:5432/appbookstore"
+
+3. Buat Database
+Buat database appbookstore di PostgreSQL lokal kamu secara manual (via pgAdmin atau CLI):
+
+CREATE DATABASE appbookstore;
+
+4. Install Dependencies
+npm install
+
+5. Migrasi & Seed Database
+npx prisma migrate dev --name init
+npx prisma db seed
+
+6. Jalankan Server
+npm run dev
+
+🔑 Akun Dummy (Seeder)
+Setelah seeding berhasil, kamu bisa langsung login dengan akun berikut:
+
+✅ User 1
+Email: john@example.com
+Password: secret123
+
+✅ User 2
+Email: jane@example.com
+Password: secret456
+
+
+
+| Method | Endpoint    | Keterangan                      |
+| ------ | ----------- | ------------------------------- |
+| POST   | `/register` | Register user baru              |
+| POST   | `/login`    | Login user & dapatkan token JWT |
+
+
+📚 Books
+| Method | Endpoint         | Keterangan                 |
+| ------ | ---------------- | -------------------------- |
+| GET    | `/api/books`     | List semua buku            |
+| GET    | `/api/books/:id` | Detail buku berdasarkan ID |
+
+🛒 Cart
+| Method | Endpoint              | Keterangan             |
+| ------ | --------------------- | ---------------------- |
+| GET    | `/api/cart`           | Ambil data cart user   |
+| POST   | `/api/cart/items`     | Tambahkan item ke cart |
+
+🧾 Checkout
+| Method | Endpoint        | Keterangan              |
+| ------ | --------------- | ----------------------- |
+| POST   | `/api/checkout` | Checkout item dari cart |
+
+📃 Invoices
+| Method | Endpoint        | Keterangan               |
+| ------ | --------------- | ------------------------ |
+| GET    | `/api/invoices` | Ambil semua invoice user |
+
+
+Terima kasih
